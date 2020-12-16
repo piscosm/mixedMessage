@@ -1,7 +1,7 @@
-##General info
+## General info
 1st portfolio exercise - Mixed Messages
 
-#Description
+# Description
 - Is a script that generate a random mixed message 'prediciton' for dev path
 	
 # Technologies
