@@ -2,11 +2,13 @@ console.log("Welcome to Mixed Messages Project");
 
 const minYear = 2021;
 const maxYear = 2030;
+const message = [];
 
-const person = ['you', 'your dad', 'your mum', 'tekashi 6ix9ine', 'the pope', 'some actor', 'the cousinf of your imaginary friend', 'Mr. Donald Trump'];
-const action = ['learn to code', 'start doing sport', 'plant something', 'start thinking', 'quit his job', 'make new friends', 'travel around the world'];
-const month = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-const year = [];
+const data ={
+person: ['your dad', 'your mum', 'tekashi 6ix9ine', 'the pope', 'some actor', 'the cousinf of your imaginary friend', 'Mr. Donald Trump'],
+action: ['learn to code', 'start doing sport', 'plant something', 'start thinking', 'quit his job', 'make new friends', 'travel around the world'],
+month: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+}
 
 function getRandomYear(min, max) {
     min = Math.ceil(min);
@@ -15,13 +17,25 @@ function getRandomYear(min, max) {
 };
 
 function mixedMessages (){
-    let randomPerson = person[Math.floor(Math.random()*person.length)];
-    let randomAction = action[Math.floor(Math.random()*action.length)]
-    let randomMonth = month[Math.floor(Math.random()*month.length)];  
-    console.log(randomPerson+' will '+randomAction+' on '+randomMonth+' '+getRandomYear(minYear, maxYear));
+    for (item in data){
+        randomIndex = Math.floor(Math.random()*data[item].length);
+        switch(item){
+            case 'person':
+                message.push(data[item][randomIndex]);
+                break;
+            case 'action':
+                message.push(' will ' + data[item][randomIndex]);
+                break;
+            case 'month':
+                message.push(' on '+data[item][randomIndex]);
+                break;
+        };
+    };
+    message.push(' '+getRandomYear(minYear,maxYear));
+    return message.join('');
 };
 
-mixedMessages();
+console.log(mixedMessages());
 
 
 
